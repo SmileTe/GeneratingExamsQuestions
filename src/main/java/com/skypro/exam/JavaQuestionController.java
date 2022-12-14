@@ -22,8 +22,8 @@ public class JavaQuestionController {
         this.service.add(question1);
     }
     @GetMapping("/exam/java/remove")
-    public void removeQuestion(@RequestParam("question") Question question) {
-        this.service.remove(question);
+    public void removeQuestion(@RequestParam("question") String question) {
+          this.service.remove(question);
 
     }
     @GetMapping("/exam/java/getAll")

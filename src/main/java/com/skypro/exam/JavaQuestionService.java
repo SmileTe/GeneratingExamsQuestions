@@ -3,6 +3,7 @@ package com.skypro.exam;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -33,6 +34,20 @@ public class JavaQuestionService implements QuestionService{
     public Question remove(Question question) {
         this.question.remove(question);
         return question;
+    }
+
+    @Override
+       public Question remove(String question) {
+        List<Question> questions =  this.question.stream().toList();
+        for (Question elementQuestions:
+             questions) {
+            if(elementQuestions.getQuestion().contains(question)){
+                this.question.remove(elementQuestions);
+                return elementQuestions;
+            }
+        }
+
+        return null;
     }
 
     @Override
