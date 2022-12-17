@@ -1,4 +1,7 @@
-package com.skypro.exam;
+package com.skypro.exam.service;
+
+import com.skypro.exam.domain.Question;
+import com.skypro.exam.exception.BadRequestException;
 
 import java.util.Collection;
 

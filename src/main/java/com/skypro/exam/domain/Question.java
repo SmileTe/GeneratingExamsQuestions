@@ -1,4 +1,4 @@
-package com.skypro.exam;
+package com.skypro.exam.domain;
 
 import java.util.Objects;
 

@@ -1,17 +1,17 @@
-package com.skypro.exam;
+package com.skypro.exam.service;
 
+import com.skypro.exam.domain.Question;
+import com.skypro.exam.exception.BadRequestException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 @Service
-public class JavaQuestionService implements QuestionService{
-    private Set<Question> question ;
+public class JavaQuestionService implements QuestionService {
+    private HashSet<Question> question ;
 
-    public JavaQuestionService(Set<Question> question) {
+    public JavaQuestionService(HashSet<Question> question) {
+
         this.question = question;
     }
 

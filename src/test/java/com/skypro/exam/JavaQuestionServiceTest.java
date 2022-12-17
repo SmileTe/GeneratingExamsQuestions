@@ -1,13 +1,15 @@
 package com.skypro.exam;
 
+import com.skypro.exam.domain.Question;
+import com.skypro.exam.service.JavaQuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-import java.util.Set;
 
 public class JavaQuestionServiceTest {
-     Set<Question> questions = new HashSet<>();
+
+    HashSet<Question> questions = new HashSet<>();
      public JavaQuestionService javaQuestionService;
 
 
@@ -44,7 +46,6 @@ public class JavaQuestionServiceTest {
             System.out.println("question = " + question);
         }
     }
-
 
     @Test
     public void getRandomQuestion() {
