@@ -59,7 +59,7 @@ public class JavaQuestionService implements QuestionService {
     public Question getRandomQuestion(int max)  {
 
         if(max>this.question.size()){
-            throw new BadRequestException();
+            throw new BadRequestException("Bad request");
         }
         Random random =new Random();
         Question o = (Question) this.question.toArray()[random.nextInt(0,max)];

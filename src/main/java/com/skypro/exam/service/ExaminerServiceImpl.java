@@ -19,7 +19,7 @@ public class ExaminerServiceImpl implements ExaminerService {
     @Override
     public Collection<Question> getQuestions(int amount) {
         if(amount>this.questionService.getAll().size()){
-            throw new BadRequestException();
+            throw new BadRequestException(("Bad request"));
         }
         Set<Question> questions = new HashSet<>();
         while (questions.size()<amount) {
@@ -28,4 +28,5 @@ public class ExaminerServiceImpl implements ExaminerService {
         }
         return questions;
     }
+
 }

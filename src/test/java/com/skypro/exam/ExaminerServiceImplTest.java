@@ -1,8 +1,10 @@
 package com.skypro.exam;
 
 import com.skypro.exam.domain.Question;
+import com.skypro.exam.exception.BadRequestException;
 import com.skypro.exam.service.ExaminerServiceImpl;
 import com.skypro.exam.service.QuestionService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -47,22 +49,21 @@ public class ExaminerServiceImplTest {
                 col) {
             System.out.println("question = " + question);
         }
+}
+    @Test
+    public void shouldThrowsBadRequestException() {
 
-//        BadRequestException thrown = Assertions.assertThrows(BadRequestException.class, () -> {
-//            int b = 6;
-//            Random random1 = new Random();
-//            Mockito.when(questionService.getAll())
-//                    .thenReturn(questions);
-//
-//            Mockito.when(questionService.getRandomQuestion(b))
-//                    .thenReturn((Question) questions.toArray()[0], (Question) questions.toArray()[1]);
-//            Collection<Question> col1 = examinerService.getQuestions(b);
-//            for (Question question :
-//                    col1) {
-//                System.out.println("question = " + question);
-//            }
-//        });
-//        Assertions.assertEquals("запрошено большее количество вопросов", thrown.getMessage());
+        BadRequestException thrown = Assertions.assertThrows(BadRequestException.class, () -> {
+
+            int incorrectSize = questions.size() + 1;
+            Mockito.when(questionService.getAll())
+                    .thenReturn(questions);
+
+            Collection<Question> col1 = examinerService.getQuestions(incorrectSize);
+
+        });
+        Assertions.assertEquals("Bad request", thrown.getMessage());
+
     }
 
 }
